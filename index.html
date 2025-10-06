@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nakota Clan - Royal 1899 Georgian Server</title>
+    <title>Nakota - Mato Oyate | Royal 1899</title>
     <style>
         * {
             margin: 0;
@@ -12,73 +12,190 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #2c1810 0%, #4a2c1a 100%);
-            color: #e8d5c4;
-            line-height: 1.6;
+            font-family: 'Sylfaen', 'Georgia', serif;
+            background: #0a0604;
+            color: #e8dcc8;
+            line-height: 1.8;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(ellipse at 20% 30%, rgba(139, 0, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 70%, rgba(80, 0, 0, 0.1) 0%, transparent 50%),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(50, 0, 0, 0.05) 2px, rgba(50, 0, 0, 0.05) 4px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .blood-drip {
+            position: fixed;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(139, 0, 0, 0.6), transparent);
+            animation: drip 3s infinite;
+            z-index: 0;
+        }
+
+        @keyframes drip {
+            0% { height: 0; top: 0; }
+            50% { height: 100px; }
+            100% { height: 0; top: 100px; }
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         header {
             text-align: center;
-            padding: 60px 20px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
-            border-bottom: 3px solid #d4a574;
+            padding: 30px 20px 40px;
+            background: 
+                linear-gradient(to bottom, rgba(20, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="%23000" opacity="0.3"/></svg>');
+            border-bottom: 3px solid #8B0000;
             margin-bottom: 40px;
+            box-shadow: 0 10px 50px rgba(139, 0, 0, 0.5);
+            position: relative;
+        }
+
+        header::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #8B0000, #FF0000, #8B0000, transparent);
+            animation: bloodFlow 3s infinite;
+        }
+
+        @keyframes bloodFlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .logo-container {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            margin: 0 auto 20px;
+            filter: drop-shadow(0 0 30px rgba(139, 0, 0, 0.8));
+        }
+
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { 
+                transform: scale(1);
+                filter: brightness(1) drop-shadow(0 0 20px rgba(139, 0, 0, 0.6));
+            }
+            50% { 
+                transform: scale(1.05);
+                filter: brightness(1.2) drop-shadow(0 0 40px rgba(139, 0, 0, 0.9));
+            }
         }
 
         h1 {
-            font-size: 3.5em;
-            color: #f4e4d4;
-            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
-            margin-bottom: 10px;
-            letter-spacing: 3px;
+            font-size: 4.5em;
+            color: #8B0000;
+            text-shadow: 
+                0 0 10px #FF0000,
+                0 0 20px #8B0000,
+                3px 3px 0 #000,
+                5px 5px 15px rgba(139, 0, 0, 0.8);
+            margin-bottom: 15px;
+            letter-spacing: 12px;
+            font-weight: bold;
         }
 
         .subtitle {
-            font-size: 1.3em;
-            color: #d4a574;
+            font-size: 1.8em;
+            color: #A52A2A;
             font-style: italic;
+            text-shadow: 
+                0 0 10px rgba(165, 42, 42, 0.8),
+                2px 2px 8px rgba(0, 0, 0, 0.9);
+            letter-spacing: 3px;
         }
 
         .nav {
             display: flex;
             justify-content: center;
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 15px;
+            margin-bottom: 50px;
             flex-wrap: wrap;
         }
 
         .nav-btn {
-            background: #5a3825;
-            color: #e8d5c4;
-            border: 2px solid #d4a574;
-            padding: 12px 30px;
-            font-size: 1.1em;
+            background: linear-gradient(145deg, #1a0000, #000);
+            color: #e8dcc8;
+            border: 2px solid #8B0000;
+            padding: 15px 35px;
+            font-size: 1.2em;
             cursor: pointer;
             transition: all 0.3s;
-            font-family: 'Georgia', serif;
+            font-family: 'Sylfaen', 'Georgia', serif;
+            font-weight: bold;
+            box-shadow: 
+                0 4px 15px rgba(0, 0, 0, 0.8),
+                inset 0 0 10px rgba(139, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.5), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-btn:hover::before {
+            left: 100%;
         }
 
         .nav-btn:hover {
-            background: #d4a574;
-            color: #2c1810;
-            transform: translateY(-2px);
+            background: linear-gradient(145deg, #8B0000, #A52A2A);
+            color: #fff;
+            border-color: #FF0000;
+            transform: translateY(-3px);
+            box-shadow: 
+                0 6px 25px rgba(139, 0, 0, 0.8),
+                0 0 20px rgba(255, 0, 0, 0.5);
         }
 
         .nav-btn.active {
-            background: #d4a574;
-            color: #2c1810;
+            background: linear-gradient(145deg, #8B0000, #A52A2A);
+            color: #fff;
+            border-color: #FF0000;
+            box-shadow: 
+                0 0 30px rgba(255, 0, 0, 0.6),
+                inset 0 0 20px rgba(0, 0, 0, 0.5);
         }
 
         .section {
             display: none;
-            animation: fadeIn 0.5s;
+            animation: fadeIn 0.6s ease-out;
         }
 
         .section.active {
@@ -86,86 +203,209 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { 
+                opacity: 0; 
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
         }
 
         .card {
-            background: rgba(90, 56, 37, 0.6);
-            border: 2px solid #d4a574;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            background: linear-gradient(145deg, rgba(20, 0, 0, 0.9), rgba(10, 0, 0, 0.95));
+            border: 2px solid #8B0000;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.9),
+                0 0 40px rgba(139, 0, 0, 0.3),
+                inset 0 1px 0 rgba(139, 0, 0, 0.3);
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #8B0000, transparent);
         }
 
         h2 {
-            color: #d4a574;
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #d4a574;
-            padding-bottom: 10px;
+            color: #8B0000;
+            font-size: 3em;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #8B0000;
+            padding-bottom: 15px;
+            text-shadow: 
+                0 0 10px rgba(139, 0, 0, 0.8),
+                2px 2px 8px rgba(0, 0, 0, 0.9);
+            letter-spacing: 3px;
         }
 
         h3 {
-            color: #f4e4d4;
-            font-size: 1.6em;
-            margin-top: 25px;
-            margin-bottom: 15px;
+            color: #A52A2A;
+            font-size: 2em;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            text-shadow: 
+                0 0 5px rgba(165, 42, 42, 0.6),
+                1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        .oath-box {
+            background: linear-gradient(135deg, rgba(10, 0, 0, 0.98), rgba(20, 0, 0, 0.98));
+            padding: 35px;
+            margin: 25px 0;
+            border: 2px solid #8B0000;
+            border-left: 5px solid #FF0000;
+            border-right: 5px solid #FF0000;
+            box-shadow: 
+                0 8px 30px rgba(0, 0, 0, 0.9),
+                inset 0 0 30px rgba(139, 0, 0, 0.2),
+                0 0 20px rgba(139, 0, 0, 0.4);
+            font-size: 1.2em;
+            line-height: 2.2;
+            font-style: italic;
+            position: relative;
+        }
+
+        .oath-box::before,
+        .oath-box::after {
+            content: '☠';
+            position: absolute;
+            color: #8B0000;
+            font-size: 2em;
+            text-shadow: 0 0 10px #FF0000;
+        }
+
+        .oath-box::before {
+            top: 10px;
+            left: 10px;
+        }
+
+        .oath-box::after {
+            bottom: 10px;
+            right: 10px;
         }
 
         .rank {
-            background: rgba(44, 24, 16, 0.8);
-            padding: 20px;
-            margin: 15px 0;
-            border-left: 4px solid #d4a574;
+            background: linear-gradient(135deg, rgba(15, 0, 0, 0.98), rgba(25, 0, 0, 0.95));
+            padding: 30px;
+            margin: 25px 0;
+            border: 2px solid #8B0000;
+            border-left: 4px solid #A52A2A;
+            box-shadow: 
+                0 6px 25px rgba(0, 0, 0, 0.9),
+                0 0 15px rgba(139, 0, 0, 0.3);
+            transition: all 0.4s;
+            position: relative;
+        }
+
+        .rank::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 0, 0, 0.3), transparent);
+            transition: left 0.6s;
+        }
+
+        .rank:hover::before {
+            left: 100%;
+        }
+
+        .rank:hover {
+            border-left-color: #FF0000;
+            box-shadow: 
+                0 10px 40px rgba(139, 0, 0, 0.6),
+                0 0 30px rgba(255, 0, 0, 0.4);
+            transform: translateX(8px);
         }
 
         .rank-title {
-            color: #d4a574;
-            font-size: 1.4em;
-            margin-bottom: 10px;
+            color: #8B0000;
+            font-size: 2em;
+            margin-bottom: 18px;
+            font-weight: bold;
+            text-shadow: 
+                0 0 10px rgba(139, 0, 0, 0.8),
+                2px 2px 6px rgba(0, 0, 0, 0.9);
         }
 
         .rank-desc {
-            color: #e8d5c4;
-            line-height: 1.8;
+            color: #e8dcc8;
+            line-height: 2;
+            font-size: 1.15em;
         }
 
         ul {
             list-style: none;
-            padding-left: 20px;
+            padding-left: 0;
         }
 
         li {
-            margin: 10px 0;
-            padding-left: 20px;
+            margin: 18px 0;
+            padding-left: 40px;
             position: relative;
+            font-size: 1.15em;
         }
 
         li:before {
-            content: "▸";
+            content: "⚔";
             position: absolute;
             left: 0;
-            color: #d4a574;
+            color: #8B0000;
+            font-size: 1.5em;
+            text-shadow: 0 0 10px rgba(139, 0, 0, 0.8);
         }
 
         .divider {
             height: 2px;
-            background: linear-gradient(to right, transparent, #d4a574, transparent);
-            margin: 40px 0;
+            background: linear-gradient(to right, transparent, #8B0000, #FF0000, #8B0000, transparent);
+            margin: 50px 0;
+            box-shadow: 0 0 15px rgba(139, 0, 0, 0.6);
+            position: relative;
+        }
+
+        .divider::after {
+            content: '●';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #8B0000;
+            font-size: 1.5em;
+            text-shadow: 0 0 20px #FF0000;
+            background: #0a0604;
+            padding: 0 15px;
         }
 
         footer {
             text-align: center;
-            padding: 30px;
-            margin-top: 50px;
-            border-top: 2px solid #d4a574;
-            color: #a8907a;
+            padding: 40px;
+            margin-top: 60px;
+            border-top: 2px solid #8B0000;
+            color: #6d5d4f;
+            background: linear-gradient(to top, rgba(10, 0, 0, 0.9), transparent);
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5em;
+                font-size: 2.8em;
+                letter-spacing: 6px;
+            }
+            
+            .logo-container {
+                width: 220px;
+                height: 220px;
             }
             
             .nav {
@@ -175,224 +415,133 @@
             .nav-btn {
                 width: 100%;
             }
+
+            .card {
+                padding: 25px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="blood-drip" style="left: 10%;"></div>
+    <div class="blood-drip" style="left: 30%; animation-delay: 1s;"></div>
+    <div class="blood-drip" style="left: 50%; animation-delay: 2s;"></div>
+    <div class="blood-drip" style="left: 70%; animation-delay: 0.5s;"></div>
+    <div class="blood-drip" style="left: 90%; animation-delay: 1.5s;"></div>
+
     <header>
-        <h1>NAKOTA CLAN</h1>
-        <p class="subtitle">Royal 1899 Georgian Server</p>
+        <div class="logo-container">
+            <img src="https://i.imgur.com/placeholder.png" alt="Nakota Mato Oyate" class="logo" id="nakota-logo">
+        </div>
+        <h1>NAKOTA</h1>
+        <p class="subtitle">Mato Oyate • დათვის ხალხი</p>
+        <p class="subtitle" style="font-size: 1.2em; margin-top: 12px; color: #8B0000;">Royal 1899 Georgian Server</p>
     </header>
 
     <div class="container">
         <div class="nav">
-            <button class="nav-btn active" onclick="showSection('home')">Home</button>
-            <button class="nav-btn" onclick="showSection('lore')">Lore</button>
-            <button class="nav-btn" onclick="showSection('ranks')">Ranks</button>
-            <button class="nav-btn" onclick="showSection('laws')">Laws & Code</button>
-            <button class="nav-btn" onclick="showSection('join')">Join Us</button>
+            <button class="nav-btn active" data-section="home">მთავარი</button>
+            <button class="nav-btn" data-section="oath">წმინდა ფიცი</button>
+            <button class="nav-btn" data-section="ranks">რანკები</button>
+            <button class="nav-btn" data-section="lore">ისტორია</button>
+            <button class="nav-btn" data-section="laws">კანონები</button>
+            <button class="nav-btn" data-section="join">შემოგვიერთდი</button>
         </div>
 
         <div id="home" class="section active">
             <div class="card">
-                <h2>Welcome to the Nakota Clan</h2>
-                <p style="font-size: 1.2em; margin-bottom: 20px;">
-                    In the harsh lands of 1899, the Nakota people stand as guardians of tradition, honor, and the old ways. We are warriors, hunters, and keepers of sacred wisdom passed down through generations.
+                <h2>Mato Oyate - დათვის ხალხი</h2>
+                <p style="font-size: 1.4em; margin-bottom: 30px; line-height: 2.2;">
+                    ჩვენ ვართ Nakota - <strong>Mato Oyate</strong>, დათვის ხალხი. ჩვენი სისხლი მოდის ერთი ფესვიდან და ჩვენი სული ზის ერთ კლდეზე. ჩვენ ვფიცავთ წინაპართა სულებსა და დიდ დათვს, რომ ვიბრძოლებთ ერთად და არასდროს დავივიწყებთ ჩვენს ძმებს.
                 </p>
                 <div class="divider"></div>
-                <h3>Who We Are</h3>
-                <p>
-                    The Nakota Clan is a tight-knit community on the Royal 1899 Georgian server, dedicated to authentic roleplay and preserving Native American culture within Red Dead Redemption 2. We value respect, loyalty, and the bonds of brotherhood.
-                </p>
-                <h3>Our Mission</h3>
+                <h3>ჩვენი მისია</h3>
                 <ul>
-                    <li>Protect our lands and people from those who would do us harm</li>
-                    <li>Preserve the traditions and wisdom of our ancestors</li>
-                    <li>Stand together as one unified tribe against injustice</li>
-                    <li>Live in harmony with nature and honor the Great Spirit</li>
+                    <li>დავიცავთ ჩვენს მიწას ბოლო წვეთ სისხლამდე</li>
+                    <li>გადავცემთ წინაპართა სიბრძნეს ძალითა და ღირსებით</li>
+                    <li>ვიდგებით ერთად როგორც ერთი ძალა - გაუმარჯვებელი</li>
+                    <li>ვასწავლით მტრებს რას ნიშნავს ეწინააღმდეგო Mato Oyate-ს</li>
+                    <li>ვიბრძოლებთ სიკვდილამდე და თუ საჭიროა - სიკვდილის შემდეგაც</li>
                 </ul>
+                <div class="divider"></div>
+                <h3>დათვის გზა</h3>
+                <p style="font-size: 1.2em; line-height: 2.2;">
+                    დათვი არის ჩვენი სული - სასტიკი, ძლიერი, დაუმორჩილებელი. როგორც დათვი არ ტოვებს თავის ტერიტორიას, ჩვენც არ დავიხევთ უკან. სადაც წავა ერთი, იქ იქნება ყველა. ჩვენი მტრები იცოდნენ - თუ ერთ Nakota-ს შეეხები, მთელ ტომს შეეხები. და ჩვენი შურისძიება არ ივიწყება.
+                </p>
             </div>
         </div>
 
-        <div id="lore" class="section">
+        <div id="oath" class="section">
             <div class="card">
-                <h2>Clan Lore & History</h2>
-                <h3>The Beginning</h3>
-                <p>
-                    Long before the white man's iron horses scarred the earth, the Nakota people roamed these lands freely. We are descendants of the great Sioux nations, bound by blood and tradition. Our ancestors hunted the buffalo, spoke with the spirits, and lived as one with the land.
-                </p>
-                
-                <div class="divider"></div>
-                
-                <h3>The Changing Times</h3>
-                <p>
-                    As the year 1899 draws to a close, our people face threats unlike any before. The government seeks to confine us to reservations, settlers encroach upon our sacred grounds, and the old ways are under siege. But the Nakota do not break easily.
-                </p>
-                
-                <div class="divider"></div>
-                
-                <h3>Our Territory</h3>
-                <p>
-                    We claim the northern territories as our homeland, where the mountains meet the plains and the rivers run clear. Here, we hunt, trade, and defend our way of life. Our camps are places of gathering, where stories are shared around the fire and the old songs still echo.
-                </p>
-                
-                <div class="divider"></div>
-                
-                <h3>Sacred Beliefs</h3>
-                <p>
-                    The Nakota hold sacred the balance between earth and sky, man and beast. We seek guidance from the Great Spirit and honor our ancestors through ceremony and deed. The eagle feather represents courage, the wolf represents loyalty, and the bear represents strength. These symbols guide our path.
-                </p>
+                <h2>Mato Oyate - წმინდა ერთობის ფიცი</h2>
+                <div class="oath-box">
+                    „ჩვენ ვართ Mato Oyate – დათვის ხალხი. ჩვენი სისხლი მოდის ერთი ფესვიდან და ჩვენი სული ზის ერთ კლდეზე. ჩვენ ვფიცავთ წინაპართა სულებსა და დიდ დათვს, რომ არც ერთი ჩვენგანი მარტო არ იბრძოლებს და არც ერთი ძმა არ დარჩება მიწაზე დავიწყებული.
+                    <br><br>
+                    სადაც წავა ერთი, იქ იქნება ყველა – როგორც კლანჭი და ღრიალი, როგორც ფარი და სული. ჩვენ დავიცავთ ჩვენს მიწას, ჩვენს ცეცხლს და ჩვენს ხალხს, ვიდრე ბოლო სუნთქვა არ დაგვტოვებს.
+                    <br><br>
+                    და როცა ჩვენი სულები შორს წავა, ისევ დავბრუნდებით დათვის სახით, რომ ვფარავდეთ ჩვენს შვილებს.
+                    <br><br>
+                    <strong>ჩვენ ვართ Mato Oyate – დათვის ხალხი. ჩვენ არ ვიშლებით. ჩვენ არ ვიხრებით. ჩვენ ვარსებობთ.</strong>"
+                </div>
             </div>
         </div>
 
         <div id="ranks" class="section">
             <div class="card">
-                <h2>Clan Hierarchy</h2>
+                <h2>რანკ სისტემა და საფიცარი სიტყვები</h2>
                 
                 <div class="rank">
-                    <div class="rank-title">🦅 Chief / Itancan</div>
+                    <div class="rank-title">Kochi-Makwa – მთავარი ბელადი</div>
+                    <div class="oath-box">
+                        „დათვთა ხალხის გულითა და სულით ვფიცავ, რომ დავიცავ ჩვენს მიწას, ჩვენს სისხლსა და ჩვენს სულს. ჩემი სიტყვა იქნება კანონი, ჩემი ხელი – სიმართლე. არც ერთი ჩრდილი არ შევა ჩვენს მიწაზე ჩემი ნებართვის გარეშე. ვფიცავ წინაპართა სულებზე – ვიყო დათვის გზის დამცველი და ხალხის მფარველი, სანამ სუნთქვა მექნება."
+                    </div>
                     <div class="rank-desc">
-                        The supreme leader of the Nakota Clan. The Chief makes final decisions on matters of war, peace, and tribal policy. They are the keeper of tradition and the voice of the people. Only the most respected and wise may hold this title.
+                        მთავარი ბელადი არის ტომის უმაღლესი ლიდერი და მეთაური. იგი იღებს ყველა მნიშვნელოვან გადაწყვეტილებას ომის, მშვიდობის და ტომის მიმართულების შესახებ. მისი სიტყვა კანონია და მისი გადაწყვეტილება საბოლოოა.
                     </div>
                 </div>
 
                 <div class="rank">
-                    <div class="rank-title">🐺 War Chief / Akicita Itancan</div>
+                    <div class="rank-title">Mato Ska – ომის ბელადი (თეთრი დათვი)</div>
+                    <div class="oath-box">
+                        „თეთრი დათვის სული იყოს ჩემთან. ვფიცავ, რომ ჩემი კლანჭი არ იფარებს თავს, სანამ მტერი იდგება ჩვენს მიწაზე. ვემსახურები Kochi-Makwa-ს ბრძანებას და ვიცავ Mato Oyate-ს სიცოცხლეს. ჩემი ძალა ეკუთვნის ტომს, ჩემი სუნთქვა – ბრძოლას, ჩემი სული – წინაპართა გზას. არასდროს დავიხევ უკან, სანამ ბოლო საფრთხე არ გაქრება ჩვენი ხალხისგან."
+                    </div>
                     <div class="rank-desc">
-                        The military commander of the clan. The War Chief leads raids, organizes defenses, and trains warriors. They answer only to the Chief and are responsible for the safety of all tribe members during conflict.
+                        ომის ბელადი არის ტომის სამხედრო მეთაური. იგი მართავს ყველა საბრძოლო ოპერაციას, ამზადებს მეომრებს და იცავს ტომს ყოველგვარი საფრთხისგან. ამ ფიცის წარმოთქმის შემდეგ ომის ბელადი წმინდა საღებავით აღინიშნება როგორც დათვის კლანჭის მატარებელი.
                     </div>
                 </div>
 
                 <div class="rank">
-                    <div class="rank-title">🔥 Elder Council / Wicahcala</div>
+                    <div class="rank-title">Mato Sapa – მეომარი (შავი დათვი)</div>
+                    <div class="oath-box">
+                        „ვფიცავ შავი დათვის სულით, რომ ჩემი სისხლი დაიღვრება ჩემი ხალხისთვის. ვემსახურები ბელადს, ვემორჩილები ომის ბელადს და ვდგავარ მათ გვერდით ბრძოლაში. ჩემი ფეხი არ დაიხევს უკან, ჩემი შუბი არ დაისვენებს მანამ, სანამ ტომი საფრთხეშია. ვფიცავ, რომ არ ვუღალატებ წინაპართა გზას და ვიქნები ფარი და ღრიალი ჩვენი ხალხისთვის."
+                    </div>
                     <div class="rank-desc">
-                        Wise advisors who have proven their worth through years of service. Elders counsel the Chief, settle disputes, and maintain tribal traditions. They are the keepers of stories and spiritual guides.
+                        მეომრები არიან ტომის ძირითადი ძალა. ისინი არიან გამოცდილი მებრძოლები, რომლებიც დაამტკიცეს თავიანთი ღირსება ბრძოლაში. ამ ფიცის შემდეგ მეომარი ოფიციალურად აღიარებულია Mato Oyate-ს ძალად.
                     </div>
                 </div>
 
                 <div class="rank">
-                    <div class="rank-title">⚔️ Warriors / Akicita</div>
-                    <div class="rank-desc">
-                        Proven fighters who have demonstrated courage in battle and loyalty to the clan. Warriors protect the tribe, hunt for the people, and uphold the honor of the Nakota name. They are the backbone of our strength.
+                    <div class="rank-title">Cikala – ახალგაზრდა (დათვის ბელი)</div>
+                    <div class="oath-box">
+                        „დათვის ბელის გულით ვფიცავ, რომ ვისწავლი წინაპართა გზას და ვემსახურები ჩემს ტომს. ჩემი გზა იქნება ზრდის გზა, ჩემი მიზანი – ღირსება და ძალა. ვუსმენ უფროსებს, ვცემ პატივს ტრადიციებს და ვზრდი ჩემს სულს ძალად. როცა დრო მოვა, გავხდები Mato Sapa და დავიცავ ჩვენს ხალხს როგორც ისინი დღეს იცავენ."
                     </div>
-                </div>
-
-                <div class="rank">
-                    <div class="rank-title">🏹 Scouts / Ite Wicasa</div>
                     <div class="rank-desc">
-                        Swift and silent, scouts gather intelligence, track prey and enemies, and serve as messengers. They are the eyes and ears of the clan, moving unseen through hostile territory.
-                    </div>
-                </div>
-
-                <div class="rank">
-                    <div class="rank-title">🌿 Braves / Koskelalaka</div>
-                    <div class="rank-desc">
-                        Young warriors who have completed their trials and earned their place among the fighters. Braves are still learning but have proven their courage and dedication. They work to achieve the rank of full Warrior.
-                    </div>
-                </div>
-
-                <div class="rank">
-                    <div class="rank-title">🌾 Members / Oyate</div>
-                    <div class="rank-desc">
-                        New or non-combat members of the tribe. They contribute through hunting, crafting, trading, and supporting clan operations. All members are valued and protected, for the tribe is only as strong as its people.
+                        ახალგაზრდები არიან ახალი წევრები, რომლებიც ამხელა დაიწყეს თავიანთი გზა მეომრობისკენ. ისინი სწავლობენ, ვარჯიშობენ და ემზადებიან იმისთვის, რომ მომავალში გახდნენ ტომის დამცველები. ეს ფიცი ნიშნავს ტომის ახალ წევრად მიღებას.
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="laws" class="section">
+        <div id="lore" class="section">
             <div class="card">
-                <h2>Tribal Code & Laws</h2>
+                <h2>ჩვენი ისტორია - სისხლში დაწერილი</h2>
+                <h3>დასაწყისი</h3>
+                <p style="font-size: 1.15em; line-height: 2.2;">
+                    დიდი ხნის წინ, როცა მიწა ჯერ კიდევ თავისუფალი იყო და თეთრი კაცის კვალი არ შეეხებოდა ჩვენს წმინდა მიწებს, დაიბადა Mato Oyate. ჩვენი პირველი ბელადი იყო მეომარი, რომელიც ბრძოლაში დათვს ხელით მოკლა და მისი სული მიიღო. მას შემდეგ, ჩვენ ვატარებთ დათვის ძალას და რისხვას.
+                </p>
                 
-                <h3>The Sacred Rules</h3>
-                <ul>
-                    <li><strong>Loyalty Above All:</strong> Never betray your brothers and sisters. The tribe comes before self.</li>
-                    <li><strong>Honor Your Word:</strong> A Nakota's word is their bond. Speak truth and keep promises.</li>
-                    <li><strong>Protect the Weak:</strong> Children, elders, and those who cannot fight are under our protection.</li>
-                    <li><strong>Respect the Land:</strong> Take only what you need. Waste nothing. Honor the spirits of all creatures.</li>
-                    <li><strong>Answer to Authority:</strong> Obey the Chief and War Chief in all matters. Question in private, support in public.</li>
-                </ul>
-
                 <div class="divider"></div>
-
-                <h3>Rules of Combat</h3>
-                <ul>
-                    <li>Never attack a fellow clan member except in training or ceremony</li>
-                    <li>Show mercy to those who surrender, unless they have committed grave offenses</li>
-                    <li>Always assist a clan member in danger, regardless of personal risk</li>
-                    <li>Take trophies only from worthy opponents</li>
-                    <li>Avenge fallen brothers and sisters</li>
-                </ul>
-
-                <div class="divider"></div>
-
-                <h3>Consequences</h3>
-                <p>
-                    Those who break the sacred code face judgment from the Chief and Elder Council. Punishments may include loss of rank, exile, or in extreme cases, death. We are merciful but firm. The clan's survival depends on unity and discipline.
-                </p>
-            </div>
-        </div>
-
-        <div id="join" class="section">
-            <div class="card">
-                <h2>Join the Nakota</h2>
                 
-                <h3>Are You Worthy?</h3>
-                <p>
-                    The Nakota Clan seeks those who value honor, loyalty, and immersive roleplay. We welcome both experienced players and newcomers who wish to learn our ways. If you feel the call of the wild and the strength of the warrior spirit, you may have a place among us.
-                </p>
-
-                <div class="divider"></div>
-
-                <h3>Requirements</h3>
-                <ul>
-                    <li>Play on Royal 1899 Georgian Server</li>
-                    <li>Commitment to serious roleplay and character development</li>
-                    <li>Respect for clan hierarchy and tribal code</li>
-                    <li>Active participation in clan activities and events</li>
-                    <li>Mature attitude and good sportsmanship</li>
-                    <li>Microphone for voice communication (preferred)</li>
-                </ul>
-
-                <div class="divider"></div>
-
-                <h3>The Initiation</h3>
-                <p>
-                    New members must prove themselves through trials of courage, skill, and loyalty. You will be tested in hunting, combat, and your knowledge of our ways. Only those who pass will be welcomed as full members of the Nakota people.
-                </p>
-
-                <div class="divider"></div>
-
-                <h3>Contact Us</h3>
-                <p style="font-size: 1.2em; text-align: center; margin-top: 30px;">
-                    <strong>Seek out clan leadership in-game or through our Discord community.</strong><br>
-                    <em>The path of the warrior awaits those brave enough to walk it.</em>
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <p>Nakota Clan - Royal 1899 Georgian Server</p>
-        <p style="margin-top: 10px; font-size: 0.9em;">Honor • Loyalty • Tradition</p>
-    </footer>
-
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.section');
-            const buttons = document.querySelectorAll('.nav-btn');
-            
-            sections.forEach(section => {
-                section.classList.remove('active');
-            });
-            
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            document.getElementById(sectionId).classList.add('active');
-            event.target.classList.add('active');
-        }
-    </script>
-</body>
-</html>
+                <h3>სისხლიანი ისტორია</h3>
+                <p style="font-size: 1.15em; line-height: 2.2;">
+                    ჩვენი ხელები არ არის სუფთა და ჩვენ ამაყ
