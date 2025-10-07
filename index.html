@@ -1,10 +1,9 @@
-<div id="lore" class="section" style="display: none;">
-        </div><!DOCTYPE html>
-<html lang="ka">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nakota - Mato Oyate | Royal 1899</title>
+    <title>Mato Oyate — დათვის ხალხი</title>
     <style>
         * {
             margin: 0;
@@ -13,649 +12,293 @@
         }
 
         body {
-            font-family: 'Sylfaen', 'Georgia', serif;
-            background: linear-gradient(135deg, #1a0f08 0%, #2d1a10 50%, #1a0f08 100%);
-            color: #d4c4b0;
-            line-height: 1.8;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(ellipse at 20% 30%, rgba(60, 30, 20, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 70%, rgba(50, 25, 15, 0.08) 0%, transparent 50%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .blood-drip {
-            position: fixed;
-            width: 2px;
-            background: linear-gradient(to bottom, rgba(80, 40, 25, 0.4), transparent);
-            animation: drip 3s infinite;
-            z-index: 0;
-        }
-
-        @keyframes drip {
-            0% { height: 0; top: 0; }
-            50% { height: 100px; }
-            100% { height: 0; top: 100px; }
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 2;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
         }
 
         header {
+            background: #fff;
+            padding: 2rem 1rem;
             text-align: center;
-            padding: 30px 20px 40px;
-            background: 
-                linear-gradient(to bottom, rgba(20, 12, 8, 0.95), rgba(15, 10, 6, 0.85));
-            border-bottom: 3px solid #5c3822;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.8);
-            position: relative;
-        }
-
-        header::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #5c3822, #7a4a2e, #5c3822, transparent);
-            animation: bloodFlow 3s infinite;
-        }
-
-        @keyframes bloodFlow {
-            0%, 100% { opacity: 0.5; }
-            50% { opacity: 1; }
-        }
-
-        .logo-container {
-            position: relative;
-            width: 320px;
-            height: 320px;
-            margin: 0 auto 20px;
-            filter: drop-shadow(0 0 25px rgba(92, 56, 34, 0.6));
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         .logo {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { 
-                transform: scale(1);
-                filter: brightness(1) drop-shadow(0 0 15px rgba(92, 56, 34, 0.5));
-            }
-            50% { 
-                transform: scale(1.05);
-                filter: brightness(1.1) drop-shadow(0 0 30px rgba(122, 74, 46, 0.7));
-            }
+            max-width: 120px;
+            height: auto;
+            margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: 4.5em;
-            color: #7a4a2e;
-            text-shadow: 
-                0 0 10px rgba(92, 56, 34, 0.6),
-                3px 3px 0 #0a0604,
-                5px 5px 15px rgba(0, 0, 0, 0.9);
-            margin-bottom: 15px;
-            letter-spacing: 12px;
-            font-weight: bold;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
         }
 
-        .subtitle {
-            font-size: 1.8em;
-            color: #9d6b4a;
-            font-style: italic;
-            text-shadow: 
-                0 0 8px rgba(122, 74, 46, 0.6),
-                2px 2px 8px rgba(0, 0, 0, 0.9);
-            letter-spacing: 3px;
-        }
-
-        .nav {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 50px;
-            flex-wrap: wrap;
-        }
-
-        .nav-btn {
-            background: linear-gradient(145deg, #2d1a10, #1a0f08);
-            color: #d4c4b0;
-            border: 2px solid #5c3822;
-            padding: 15px 35px;
-            font-size: 1.2em;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-family: 'Sylfaen', 'Georgia', serif;
-            font-weight: bold;
-            box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.8),
-                inset 0 0 10px rgba(92, 56, 34, 0.15);
-            position: relative;
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             overflow: hidden;
         }
 
-        .nav-btn::before {
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #e0e0e0;
+            background: #fafafa;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #666;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab-button:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .tab-button:focus {
+            outline: 2px solid #4CAF50;
+            outline-offset: -2px;
+        }
+
+        .tab-button[aria-selected="true"] {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .tab-button[aria-selected="true"]::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(92, 56, 34, 0.3), transparent);
-            transition: left 0.5s;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: #4CAF50;
         }
 
-        .nav-btn:hover::before {
-            left: 100%;
-        }
-
-        .nav-btn:hover {
-            background: linear-gradient(145deg, #5c3822, #7a4a2e);
-            color: #fff;
-            border-color: #7a4a2e;
-            transform: translateY(-3px);
-            box-shadow: 
-                0 6px 25px rgba(92, 56, 34, 0.6),
-                0 0 20px rgba(122, 74, 46, 0.4);
-        }
-
-        .nav-btn.active {
-            background: linear-gradient(145deg, #5c3822, #7a4a2e);
-            color: #fff;
-            border-color: #7a4a2e;
-            box-shadow: 
-                0 0 30px rgba(122, 74, 46, 0.5),
-                inset 0 0 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .section {
+        .tab-content {
             display: none;
-            animation: fadeIn 0.6s ease-out;
+            padding: 2rem;
+            animation: fadeIn 0.3s ease;
         }
 
-        .section.active {
+        .tab-content[aria-hidden="false"] {
             display: block;
         }
 
         @keyframes fadeIn {
-            from { 
-                opacity: 0; 
-                transform: translateY(30px);
+            from {
+                opacity: 0;
+                transform: translateY(10px);
             }
-            to { 
-                opacity: 1; 
+            to {
+                opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        .card {
-            background: linear-gradient(145deg, rgba(30, 18, 12, 0.9), rgba(25, 15, 10, 0.95));
-            border: 2px solid #5c3822;
-            padding: 40px;
-            margin-bottom: 40px;
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.9),
-                0 0 30px rgba(92, 56, 34, 0.2),
-                inset 0 1px 0 rgba(92, 56, 34, 0.2);
-            border-radius: 2px;
-            position: relative;
+        .tab-content p {
+            margin-bottom: 1rem;
+            white-space: pre-wrap;
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, #5c3822, transparent);
+        .tab-content h2 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
         }
 
-        h2 {
-            color: #7a4a2e;
-            font-size: 3em;
-            margin-bottom: 30px;
-            border-bottom: 3px solid #5c3822;
-            padding-bottom: 15px;
-            text-shadow: 
-                0 0 10px rgba(92, 56, 34, 0.6),
-                2px 2px 8px rgba(0, 0, 0, 0.9);
-            letter-spacing: 3px;
-        }
-
-        h3 {
-            color: #9d6b4a;
-            font-size: 2em;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            text-shadow: 
-                0 0 5px rgba(122, 74, 46, 0.5),
-                1px 1px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        .oath-box {
-            background: linear-gradient(135deg, rgba(20, 12, 8, 0.98), rgba(28, 17, 11, 0.98));
-            padding: 35px;
-            margin: 25px 0;
-            border: 2px solid #5c3822;
-            border-left: 5px solid #7a4a2e;
-            border-right: 5px solid #7a4a2e;
-            box-shadow: 
-                0 8px 30px rgba(0, 0, 0, 0.9),
-                inset 0 0 30px rgba(92, 56, 34, 0.15),
-                0 0 20px rgba(92, 56, 34, 0.3);
-            font-size: 1.2em;
-            line-height: 2.2;
-            font-style: italic;
-            position: relative;
-        }
-
-        .oath-box::before,
-        .oath-box::after {
-            content: '☠';
-            position: absolute;
-            color: #7a4a2e;
-            font-size: 2em;
-            text-shadow: 0 0 10px rgba(122, 74, 46, 0.6);
-        }
-
-        .oath-box::before {
-            top: 10px;
-            left: 10px;
-        }
-
-        .oath-box::after {
-            bottom: 10px;
-            right: 10px;
-        }
-
-        .rank {
-            background: linear-gradient(135deg, rgba(28, 17, 11, 0.98), rgba(35, 21, 14, 0.95));
-            padding: 30px;
-            margin: 25px 0;
-            border: 2px solid #5c3822;
-            border-left: 4px solid #7a4a2e;
-            box-shadow: 
-                0 6px 25px rgba(0, 0, 0, 0.9),
-                0 0 15px rgba(92, 56, 34, 0.25);
-            transition: all 0.4s;
-            position: relative;
-        }
-
-        .rank::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(92, 56, 34, 0.25), transparent);
-            transition: left 0.6s;
-        }
-
-        .rank:hover::before {
-            left: 100%;
-        }
-
-        .rank:hover {
-            border-left-color: #9d6b4a;
-            box-shadow: 
-                0 10px 40px rgba(92, 56, 34, 0.5),
-                0 0 30px rgba(122, 74, 46, 0.35);
-            transform: translateX(8px);
-        }
-
-        .rank-title {
-            color: #7a4a2e;
-            font-size: 2em;
-            margin-bottom: 18px;
-            font-weight: bold;
-            text-shadow: 
-                0 0 10px rgba(92, 56, 34, 0.6),
-                2px 2px 6px rgba(0, 0, 0, 0.9);
-        }
-
-        .rank-desc {
-            color: #d4c4b0;
-            line-height: 2;
-            font-size: 1.15em;
-        }
-
-        ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        li {
-            margin: 18px 0;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.15em;
-        }
-
-        li:before {
-            content: "⚔";
-            position: absolute;
-            left: 0;
-            color: #7a4a2e;
-            font-size: 1.5em;
-            text-shadow: 0 0 10px rgba(92, 56, 34, 0.6);
-        }
-
-        .divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, #5c3822, #7a4a2e, #5c3822, transparent);
-            margin: 50px 0;
-            box-shadow: 0 0 15px rgba(92, 56, 34, 0.4);
-            position: relative;
-        }
-
-        .divider::after {
-            content: '●';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: #7a4a2e;
-            font-size: 1.5em;
-            text-shadow: 0 0 20px rgba(122, 74, 46, 0.6);
-            background: #1a0f08;
-            padding: 0 15px;
+        .tab-content h2:first-child {
+            margin-top: 0;
         }
 
         footer {
             text-align: center;
-            padding: 40px;
-            margin-top: 60px;
-            border-top: 2px solid #5c3822;
-            color: #7a6250;
-            background: linear-gradient(to top, rgba(25, 15, 10, 0.9), transparent);
+            padding: 2rem 1rem;
+            color: #666;
+            font-size: 0.875rem;
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.8em;
-                letter-spacing: 6px;
-            }
-            
-            .logo-container {
-                width: 220px;
-                height: 220px;
-            }
-            
-            .nav {
-                flex-direction: column;
-            }
-            
-            .nav-btn {
-                width: 100%;
+        @media (max-width: 600px) {
+            main {
+                margin: 1rem;
+                border-radius: 4px;
             }
 
-            .card {
-                padding: 25px;
+            .tab-button {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem 1rem;
+            }
+
+            h1 {
+                font-size: 1.25rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="blood-drip" style="left: 10%;"></div>
-    <div class="blood-drip" style="left: 30%; animation-delay: 1s;"></div>
-    <div class="blood-drip" style="left: 50%; animation-delay: 2s;"></div>
-    <div class="blood-drip" style="left: 70%; animation-delay: 0.5s;"></div>
-    <div class="blood-drip" style="left: 90%; animation-delay: 1.5s;"></div>
-
     <header>
-        <div class="logo-container">
-            <img src="03da896c-2b4f-4ce3-800a-53c71c1464a9.png" alt="Nakota Mato Oyate" class="logo" id="nakota-logo">
-        </div>
-        <h1>NAKOTA</h1>
-        <p class="subtitle">Mato Oyate • დათვის ხალხი</p>
-        <p class="subtitle" style="font-size: 1.2em; margin-top: 12px; color: #7a4a2e;">Royal 1899 Georgian Server</p>
+        <img src="03da896c-2b4f-4ce3-800a-53c71c1464a9.png" alt="Mato Oyate logo" class="logo">
+        <h1>Mato Oyate — დათვის ხალხი</h1>
     </header>
 
-    <div class="container">
-        <div class="nav">
-            <button class="nav-btn active" data-section="home">მთავარი</button>
-            <button class="nav-btn" data-section="oath">წმინდა ფიცი</button>
-            <button class="nav-btn" data-section="ranks">რანკები</button>
-            <button class="nav-btn" data-section="contact">დაგვიკავშირდი</button>
+    <main>
+        <nav class="tabs" role="tablist">
+            <button class="tab-button" role="tab" aria-selected="true" aria-controls="lore-panel" id="lore-tab">Lore</button>
+            <button class="tab-button" role="tab" aria-selected="false" aria-controls="titles-panel" id="titles-tab">Titles</button>
+            <button class="tab-button" role="tab" aria-selected="false" aria-controls="oaths-panel" id="oaths-tab">Oaths</button>
+        </nav>
+
+        <div class="tab-content" role="tabpanel" id="lore-panel" aria-labelledby="lore-tab" aria-hidden="false">
+            <p>„Mato Oyate tsyúŋke Ursa wíyeya" – დათვის ხალხი დიდი დათვის ბილიკზე დადის.</p>
+            <p>ძველი დრო იყო. დრო, როცა არც ტომები იყვნენ და არც ცხოველები – მხოლოდ ქარი და სიჩუმე დადიოდა მიწასა და ცაზე. ამ დროს სამყაროში ბინადრობდა უზარმაზარი სული – Wakȟáŋ Tȟáŋka, დიდი საიდუმლო. და ამ საიდუმლოს გულიდან დაიბადა პირველი მცველი – Ursa, დიდი დათვის სული.</p>
+            <p>Ursa იყო ძლიერი როგორც ქარი და მშვიდი როგორც თოვლი. მას გააჩნდა ორი სახე – შავი ბეწვი ბნელისგან დასაცავად და თეთრი ბეწვი სინათლის დასაბალანსებლად. როცა ის ნაბიჯს დგამდა, მიწა იძვრებოდა, როცა ღრიალებდა – მთებს ეღვიძებოდათ.</p>
+            <p>მაგრამ მიწაზე არ იყო არავინ, ვისაც ესმოდა მისი ხმა. არც ადამიანი, არც ცხოველი არ არსებობდა. ამიტომ მან თავგანწირვით გადაწყვიტა საკუთარი სხეულის გაყოფა ოთხ ნაწილად და ოთხივე მხარეს გაგზავნა:</p>
+            <p>აღმოსავლეთზე – გაგზავნა ბრძოლის სული
+დასავლეთზე – სიბრძნის სული
+ჩრდილოეთზე – სიცოცხლის სუნთქვა
+სამხრეთზე – სისხლის ცეცხლი</p>
+            <p>ეს ოთხი ძალა გაერთიანდა და შეიქმნა პირველი ადამიანი. ისინი იყვნენ პატარა და სუსტი, მაგრამ გულით ძლიერი. როცა მტერი და ბნელი მათ სამყაროს მიადგა, ადამიანები შიშისგან დაიმალნენ და ცეცხლი ჩაქრა. მხოლოდ ერთმა ბავშვმა გაბედა და მთას შეევედრა:</p>
+            <p>„თუ შენ გქვია დიდი დათვი, რატომ მიგვატოვე შვილები ბნელში?"</p>
+            <p>Ursa-მ ეს გაიგონა და ციდან დაეშვა როგორც უზარმაზარი დათვი, ვარსკვლავთა ბეწვით. მან თქვა:</p>
+            <p>„მე არ დაგტოვეთ. მე თქვენში ვარ. თქვენი სისხლი ჩემი სისხლია. თუ გაბედავთ და ერთ მუშტად დადგებით, ჩემი ძალა თქვენს ძვლებში იცხოვრებს."</p>
+            <p>ბავშვი გაიზარდა და გახდა პირველი ბელადი – Kochi-Makwa, დათვის ნება. მის ირგვლივ გაერთიანდნენ მეომრები და ბელები, და ამ ხალხს ეწოდა Mato Oyate – დათვის ხალხი.</p>
+            <p>ისინი უკვე მარტო არ იყვნენ – ისინი იყვნენ Ursa-ს შვილები.</p>
+            <p>მას შემდეგ ტომის რწმენა ამბობს:</p>
+            <p>როცა ბრძოლის ველზე გული აღარ გიჭერს – ეს Ursa-ს ღრიალია შენში.
+როცა ცეცხლი არ ჩაქრება ზამთარში – ეს Ursa-ს სუნთქვაა.
+როცა ბელი იბადება – ეს Ursa-ს სისხლია ხელახლა.</p>
+            <p>და ზეცაზე ვარსკვლავებში დიდ დათვს რომ შეხედავ – იცოდე, რომ ის უყურებს თავის ხალხს და ელოდება იმ დღეს, როცა კვლავ დაბრუნდება ხორცში, რათა ერთად იბრძოლონ.</p>
         </div>
 
-        <div id="home" class="section active">
-            <div class="card">
-                <h2>Mato Oyate - დათვის ხალხი</h2>
-                <p style="font-size: 1.4em; margin-bottom: 30px; line-height: 2.2;">
-                    ჩვენ ვართ Nakota - <strong>Mato Oyate</strong>, დათვის ხალხი. ჩვენი სისხლი მოდის ერთი ფესვიდან და ჩვენი სული ზის ერთ კლდეზე.
-                </p>
-            </div>
+        <div class="tab-content" role="tabpanel" id="titles-panel" aria-labelledby="titles-tab" aria-hidden="true">
+            <h2>Kochi-Makwa – მთავარი ბელადი</h2>
+            <p>„დათვთა ხალხის გულითა და სულით ვფიცავ,
+რომ დავიცავ ჩვენს მიწას, ჩვენს სისხლსა და ჩვენს სულს.
+ჩემი სიტყვა იქნება კანონი, ჩემი ხელი – სიმართლე.
+არც ერთი ჩრდილი არ შევა ჩვენს მიწაზე ჩემი ნებართვის გარეშე.
+ვფიცავ წინაპართა სულებზე – ვიყო დათვის გზის დამცველი და ხალხის მფარველი, სანამ სუნთქვა მექნება."</p>
+            <h2>Mato Ska – ომის ბელადი – საფიცარი სიტყვა</h2>
+            <p>„თეთრი დათვის სული იყოს ჩემთან.
+ვფიცავ, რომ ჩემი კლანჭი არ იფარებს თავს, სანამ მტერი იდგა ჩვენს მიწაზე.
+ვემსახურები Kochi-Makwa-ს ბრძანებას და ვიცავ Mato Oyate-ს სიცოცხლეს.
+ჩემი ძალა ეკუთვნის ტომს, ჩემი სუნთქვა – ბრძოლას, ჩემი სული – წინაპართა გზას.
+არასდროს დავიხევ უკან, სანამ ბოლო საფრთხე არ გაქრება ჩვენი ხალხისგან."</p>
+            <p>📜 – ამ ფიცის წარმოთქმის შემდეგ ომის ბელადი წმინდა საღებავით მონიშნავდნენ როგორც დათვის კლანჭის მატარებელს.</p>
+            <h2>Mato Sapa – მეომარი – საფიცარი სიტყვა</h2>
+            <p>„ვფიცავ შავი დათვის სულით, რომ ჩემი სისხლი დაიღვრება ჩემი ხალხისთვის.
+ვემსახურები ბელადს, ვემორჩილები ომის ბელადს და ვდგავარ მათ გვერდით ბრძოლაში.
+ჩემი ფეხი არ დაიხევს უკან, ჩემი შუბი არ დაისვენებს მანამ, სანამ ტომი საფრთხეშია.
+ვფიცავ, რომ არ ვუღალატებ წინაპართა გზას და ვიქნები ფარი და ღრიალი ჩვენი ხალხისთვის."</p>
+            <p>📜 – ამ ფიცის შემდეგ მეომარი ოფიციალურად აღიარებული იყო Mato Oyate-ს ძალად.</p>
+            <h2>Cikala – ახალწვეული – საფიცარი სიტყვა</h2>
+            <p>„დათვის ბელის გულით ვფიცავ, რომ ვისწავლი წინაპართა გზას და ვემსახურები ჩემს ტომს.
+ჩემი გზა იქნება ზრდის გზა, ჩემი მიზანი – ღირსება და ძალა.
+ვუსმენ უფროსებს, ვცემ პატივს ტრადიციებს და ვზრდი ჩემს სულს ძალად.
+როცა დრო მოვა, გავხდები Mato Sapa და დავიცავ ჩვენს ხალხს როგორც ისინი დღეს იცავენ."</p>
+            <p>📜 – ეს ფიცი ნიშნავდა ტომის ახალ წევრად მიღებას და გზის დაწყებას მეომრობისკენ.</p>
         </div>
 
-        <div id="oath" class="section">
-            <div class="card">
-                <h2>Mato Oyate - წმინდა ერთობის ფიცი</h2>
-                <div class="oath-box">
-                    „ჩვენ ვართ Mato Oyate – დათვის ხალხი. ჩვენი სისხლი მოდის ერთი ფესვიდან და ჩვენი სული ზის ერთ კლდეზე. ჩვენ ვფიცავთ წინაპართა სულებსა და დიდ დათვს, რომ არც ერთი ჩვენგანი მარტო არ იბრძოლებს და არც ერთი ძმა არ დარჩება მიწაზე დავიწყებული.
-                    <br><br>
-                    სადაც წავა ერთი, იქ იქნება ყველა – როგორც კლანჭი და ღრიალი, როგორც ფარი და სული. ჩვენ დავიცავთ ჩვენს მიწას, ჩვენს ცეცხლს და ჩვენს ხალხს, ვიდრე ბოლო სუნთქვა არ დაგვტოვებს.
-                    <br><br>
-                    და როცა ჩვენი სულები შორს წავა, ისევ დავბრუნდებით დათვის სახით, რომ ვფარავდეთ ჩვენს შვილებს.
-                    <br><br>
-                    <strong>ჩვენ ვართ Mato Oyate – დათვის ხალხი. ჩვენ არ ვიშლებით. ჩვენ არ ვიხრებით. ჩვენ ვარსებობთ.</strong>"
-                </div>
-            </div>
+        <div class="tab-content" role="tabpanel" id="oaths-panel" aria-labelledby="oaths-tab" aria-hidden="true">
+            <h2>Kochi-Makwa – მთავარი ბელადი</h2>
+            <p>„დათვთა ხალხის გულითა და სულით ვფიცავ,
+რომ დავიცავ ჩვენს მიწას, ჩვენს სისხლსა და ჩვენს სულს.
+ჩემი სიტყვა იქნება კანონი, ჩემი ხელი – სიმართლე.
+არც ერთი ჩრდილი არ შევა ჩვენს მიწაზე ჩემი ნებართვის გარეშე.
+ვფიცავ წინაპართა სულებზე – ვიყო დათვის გზის დამცველი და ხალხის მფარველი, სანამ სუნთქვა მექნება."</p>
+            <h2>Mato Ska – ომის ბელადი – საფიცარი სიტყვა</h2>
+            <p>„თეთრი დათვის სული იყოს ჩემთან.
+ვფიცავ, რომ ჩემი კლანჭი არ იფარებს თავს, სანამ მტერი იდგა ჩვენს მიწაზე.
+ვემსახურები Kochi-Makwa-ს ბრძანებას და ვიცავ Mato Oyate-ს სიცოცხლეს.
+ჩემი ძალა ეკუთვნის ტომს, ჩემი სუნთქვა – ბრძოლას, ჩემი სული – წინაპართა გზას.
+არასდროს დავიხევ უკან, სანამ ბოლო საფრთხე არ გაქრება ჩვენი ხალხისგან."</p>
+            <p>📜 – ამ ფიცის წარმოთქმის შემდეგ ომის ბელადი წმინდა საღებავით მონიშნავდნენ როგორც დათვის კლანჭის მატარებელს.</p>
+            <h2>Mato Sapa – მეომარი – საფიცარი სიტყვა</h2>
+            <p>„ვფიცავ შავი დათვის სულით, რომ ჩემი სისხლი დაიღვრება ჩემი ხალხისთვის.
+ვემსახურები ბელადს, ვემორჩილები ომის ბელადს და ვდგავარ მათ გვერდით ბრძოლაში.
+ჩემი ფეხი არ დაიხევს უკან, ჩემი შუბი არ დაისვენებს მანამ, სანამ ტომი საფრთხეშია.
+ვფიცავ, რომ არ ვუღალატებ წინაპართა გზას და ვიქნები ფარი და ღრიალი ჩვენი ხალხისთვის."</p>
+            <p>📜 – ამ ფიცის შემდეგ მეომარი ოფიციალურად აღიარებული იყო Mato Oyate-ს ძალად.</p>
+            <h2>Cikala – ახალწვეული – საფიცარი სიტყვა</h2>
+            <p>„დათვის ბელის გულით ვფიცავ, რომ ვისწავლი წინაპართა გზას და ვემსახურები ჩემს ტომს.
+ჩემი გზა იქნება ზრდის გზა, ჩემი მიზანი – ღირსება და ძალა.
+ვუსმენ უფროსებს, ვცემ პატივს ტრადიციებს და ვზრდი ჩემს სულს ძალად.
+როცა დრო მოვა, გავხდები Mato Sapa და დავიცავ ჩვენს ხალხს როგორც ისინი დღეს იცავენ."</p>
+            <p>📜 – ეს ფიცი ნიშნავდა ტომის ახალ წევრად მიღებას და გზის დაწყებას მეომრობისკენ.</p>
         </div>
-
-        <div id="ranks" class="section">
-            <div class="card">
-                <h2>რანკ სისტემა და საფიცარი სიტყვები</h2>
-                
-                <div class="rank">
-                    <div class="rank-title">Kochi-Makwa – მთავარი ბელადი</div>
-                    <div class="oath-box">
-                        „დათვთა ხალხის გულითა და სულით ვფიცავ, რომ დავიცავ ჩვენს მიწას, ჩვენს სისხლსა და ჩვენს სულს. ჩემი სიტყვა იქნება კანონი, ჩემი ხელი – სიმართლე. არც ერთი ჩრდილი არ შევა ჩვენს მიწაზე ჩემი ნებართვის გარეშე. ვფიცავ წინაპართა სულებზე – ვიყო დათვის გზის დამცველი და ხალხის მფარველი, სანამ სუნთქვა მექნება."
-                    </div>
-                    <div class="rank-desc">
-                        მთავარი ბელადი არის ტომის უმაღლესი ლიდერი და მეთაური. იგი იღებს ყველა მნიშვნელოვან გადაწყვეტილებას ომის, მშვიდობის და ტომის მიმართულების შესახებ. მისი სიტყვა კანონია და მისი გადაწყვეტილება საბოლოოა.
-                    </div>
-                </div>
-
-                <div class="rank">
-                    <div class="rank-title">Mato Ska – ომის ბელადი (თეთრი დათვი)</div>
-                    <div class="oath-box">
-                        „თეთრი დათვის სული იყოს ჩემთან. ვფიცავ, რომ ჩემი კლანჭი არ იფარებს თავს, სანამ მტერი იდგება ჩვენს მიწაზე. ვემსახურები Kochi-Makwa-ს ბრძანებას და ვიცავ Mato Oyate-ს სიცოცხლეს. ჩემი ძალა ეკუთვნის ტომს, ჩემი სუნთქვა – ბრძოლას, ჩემი სული – წინაპართა გზას. არასდროს დავიხევ უკან, სანამ ბოლო საფრთხე არ გაქრება ჩვენი ხალხისგან."
-                    </div>
-                    <div class="rank-desc">
-                        ომის ბელადი არის ტომის სამხედრო მეთაური. იგი მართავს ყველა საბრძოლო ოპერაციას, ამზადებს მეომრებს და იცავს ტომს ყოველგვარი საფრთხისგან. ამ ფიცის წარმოთქმის შემდეგ ომის ბელადი წმინდა საღებავით აღინიშნება როგორც დათვის კლანჭის მატარებელი.
-                    </div>
-                </div>
-
-                <div class="rank">
-                    <div class="rank-title">Mato Sapa – მეომარი (შავი დათვი)</div>
-                    <div class="oath-box">
-                        „ვფიცავ შავი დათვის სულით, რომ ჩემი სისხლი დაიღვრება ჩემი ხალხისთვის. ვემსახურები ბელადს, ვემორჩილები ომის ბელადს და ვდგავარ მათ გვერდით ბრძოლაში. ჩემი ფეხი არ დაიხევს უკან, ჩემი შუბი არ დაისვენებს მანამ, სანამ ტომი საფრთხეშია. ვფიცავ, რომ არ ვუღალატებ წინაპართა გზას და ვიქნები ფარი და ღრიალი ჩვენი ხალხისთვის."
-                    </div>
-                    <div class="rank-desc">
-                        მეომრები არიან ტომის ძირითადი ძალა. ისინი არიან გამოცდილი მებრძოლები, რომლებიც დაამტკიცეს თავიანთი ღირსება ბრძოლაში. ამ ფიცის შემდეგ მეომარი ოფიციალურად აღიარებულია Mato Oyate-ს ძალად.
-                    </div>
-                </div>
-
-                <div class="rank">
-                    <div class="rank-title">Cikala – ახალგაზრდა (დათვის ბელი)</div>
-                    <div class="oath-box">
-                        „დათვის ბელის გულით ვფიცავ, რომ ვისწავლი წინაპართა გზას და ვემსახურები ჩემს ტომს. ჩემი გზა იქნება ზრდის გზა, ჩემი მიზანი – ღირსება და ძალა. ვუსმენ უფროსებს, ვცემ პატივს ტრადიციებს და ვზრდი ჩემს სულს ძალად. როცა დრო მოვა, გავხდები Mato Sapa და დავიცავ ჩვენს ხალხს როგორც ისინი დღეს იცავენ."
-                    </div>
-                    <div class="rank-desc">
-                        ახალგაზრდები არიან ახალი წევრები, რომლებიც ამხელა დაიწყეს თავიანთი გზა მეომრობისკენ. ისინი სწავლობენ, ვარჯიშობენ და ემზადებიან იმისთვის, რომ მომავალში გახდნენ ტომის დამცველები. ეს ფიცი ნიშნავს ტომის ახალ წევრად მიღებას.
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div id="lore" class="section">
-            <div class="card">
-                <h2>ჩვენი ისტორია - სისხლში დაწერილი</h2>
-                <h3>დასაწყისი</h3>
-                <p style="font-size: 1.15em; line-height: 2.2;">
-                    დიდი ხნის წინ, როცა მიწა ჯერ კიდევ თავისუფალი იყო და თეთრი კაცის კვალი არ შეეხებოდა ჩვენს წმინდა მიწებს, დაიბადა Mato Oyate. ჩვენი პირველი ბელადი იყო მეომარი, რომელიც ბრძოლაში დათვს ხელით მოკლა და მისი სული მიიღო. მას შემდეგ, ჩვენ ვატარებთ დათვის ძალას და რისხვას.
-                </p>
-                
-                <div class="divider"></div>
-                
-                <h3>სისხლიანი ისტორია</h3>
-                <p style="font-size: 1.15em; line-height: 2.2;">
-                    ჩვენი ხელები არ არის სუფთა და ჩვენ ამაყად ვატარებთ ჩვენი მტრების სისხლს. თითოეული ბრძოლა, თითოეული გამარჯვება დაიწერა მტრის სისხლით ჩვენს მიწაზე. ჩვენ არ ვითხოვთ მიტევებას, ჩვენ არ ვიცით მოწყალება - მხოლოდ ძალა და გამარჯვება.
-                </p>
-                
-                <div class="divider"></div>
-                
-                <h3>1899 წელი - ბრძოლა გრძელდება</h3>
-                <p style="font-size: 1.15em; line-height: 2.2;">
-                    ახლა თეთრი კაცი ცდილობს ჩვენი შეჩერებას. მთავრობა, კანონი, რეზერვაციები - ყველა ცდილობს ჩვენი მოშორებას ჩვენი მიწიდან. მაგრამ ისინი არ იციან ვისთან საქმე აქვთ. ყოველი თვე რომ ცდილობს ჩვენს მიწაზე ფეხის დადგმას, ყოველი მოსახლე რომ ცდილობს ჩვენი ტერიტორიის წართმევას - ისინი იხდიან თავიანთი სისხლით.
-                </p>
-                
-                <div class="divider"></div>
-                
-                <h3>ჩვენი ტერიტორია - ჩვენი სამეფო</h3>
-                <p style="font-size: 1.15em; line-height: 2.2;">
-                    ჩრდილოეთის მთები და ბარები არის ჩვენი. აქ ჩვენ ვართ კანონი. აქ ჩვენ ვართ სიკვდილი მათთვის ვინც გვეწინააღმდეგება. ჩვენი ბანაკები არის ციხე-ქალაქები, სადაც ცეცხლი არასდროს ქრება და სისხლი ყოველთვის თბილია. ეს არის Mato Oyate-ს მიწა, და ვინც შემოვა ნებართვის გარეშე - აღარ გამოვა.
-                </p>
-            </div>
-        </div>
-
-        <div id="laws" class="section" style="display: none;">
-        </div>
-            <div class="card">
-                <h2>ტომის კანონები - სისხლით დაწერილი</h2>
-                
-                <h3>უმთავრესი წესები</h3>
-                <ul>
-                    <li><strong>ერთგულება ან სიკვდილი:</strong> ღალატი ისჯება სიკვდილით. არანაირი გამონაკლისი, არანაირი მოწყალება.</li>
-                    <li><strong>ძმის სისხლი მოითხოვს შურისძიებას:</strong> თუ ვინმე კლავს Mato Oyate-ს წევრს, მთელი ტომი მოდის შურისძიებით.</li>
-                    <li><strong>ძალა არის კანონი:</strong> სუსტები არ გადარჩებიან. გახდი ძლიერი ან დაიხოცე.</li>
-                    <li><strong>პატივი გაიმსახურე სისხლით:</strong> პატივი არ იძლევა - ის იბრძვის. თითოეული რანგი მოითხოვს მტრის სისხლს.</li>
-                    <li><strong>ბელადის სიტყვა აბსოლუტურია:</strong> დაუმორჩილებლობა = სიკვდილი.</li>
-                </ul>
-
-                <div class="divider"></div>
-
-                <h3>ბრძოლის კოდექსი</h3>
-                <ul>
-                    <li>არასდროს დატოვო ძმა ბრძოლაში - მოკვდი, მაგრამ მასთან დარჩი</li>
-                    <li>მტერს არ ეჩვენოს მოწყალება - მხოლოდ სიკვდილი</li>
-                    <li>აიღე ტროფეები ყოველი მკვლელობიდან - გაახსენე მათ ვინ ხარ</li>
-                    <li>შური ყოველთვის უნდა იყოს გამოძიებული - არც ერთი სისხლი არ უნდა დარჩეს უპასუხო</li>
-                    <li>ნახე მტერის თვალებში სიკვდილი მის შიგნით</li>
-                </ul>
-
-                <div class="divider"></div>
-
-                <h3>შედეგები და სასჯელი</h3>
-                <p style="font-size: 1.15em; line-height: 2.2;">
-                    ვინც არღვევს ჩვენს კანონებს არ იმსახურებს სწრაფ სიკვდილს. ღალატი, დაუმორჩილებლობა, სისუსტე - ყველა მათგანს ელის დაბადების სინანულით ტანჯვა. ჩვენ არ ვართ მოწყალენი. ჩვენ ვართ Mato Oyate - დათვის ხალხი. და დათვი არ იცის მიტევება.
-                </p>
-            </div>
-        </div>
-
-        <div id="join" class="section" style="display: none;">
-        </div>
-            <div class="card">
-                <h2>შემოუერთდი Mato Oyate-ს - თუ ღირსი ხარ</h2>
-                
-                <h3>ხარ კი საკმარისად ძლიერი?</h3>
-                <p style="font-size: 1.15em; line-height: 2.2;">
-                    Nakota არ ეძებს სუსტებს. ჩვენ ვეძებთ მეომრებს, ვინც მზად არის დაიღვაროს სისხლი ტომისთვის. თუ ეძებ ოჯახს რომელიც მოგიფარავს - წადი სხვაგან. თუ ეძებ ბრძოლას, სისხლსა და ღირსებას - მოდი ჩვენთან.
-                </p>
-
-                <div class="divider"></div>
-
-                <h3>მოთხოვნები</h3>
-                <ul>
-                    <li>Royal 1899 Georgian Server-ის მოთამაშე</li>
-                    <li>მზაობა სერიოზული და სასტიკი როლეფლეიისთვის</li>
-                    <li>დაქვემდებარება იერარქიისა და ბელადობის მიმართ</li>
-                    <li>აქტიური მონაწილეობა ტომის ღონისძიებებსა და ბრძოლებში</li>
-                    <li>მზაობა იბრძოლო და მოკვდე ტომისთვის</li>
-                    <li>მიკროფონი (სავალდებულო) - სუსტები არ ლაპარაკობენ</li>
-                </ul>
-
-                <div class="divider"></div>
-
-                <h3>ინიციაცია - სისხლით ან სიკვდილით</h3>
-                <p style="font-size: 1.15em; line-height: 2.2;">
-                    ახალი წევრები უნდა გაიარონ ინიციაცია. ეს არ არის თამაში. ეს არის გამოცდა სიცოცხლისა და სიკვდილის. თუ გადარჩები - გახდები Cikala. თუ არა - შენი სისხლი დაგვახსენებს რომ ვიყოთ ძლიერები. ინიციაცია მოიცავს:
-                </p>
-                <ul>
-                    <li>ბრძოლა მეომართან ხელჩართულ კომბატში</li>
-                    <li>პირველი მკვლელობა - მოიყვანე მტრის სკალპი</li>
-                    <li>ერთგულების დემონსტრირება - დაამტკიცე რომ მზად ხარ მოკვდე</li>
-                    <li>ფიცის მიცემა სისხლის წინაშე</li>
-                </ul>
-
-                <div class="divider"></div>
-
-                <h3>დაგვიკავშირდი</h3>
-                <p style="font-size: 1.3em; text-align: center; margin-top: 40px; line-height: 2.2; color: #9d6b4a;">
-                    <strong>მოძებნე Mato Oyate-ს წევრები თამაშში ან Discord-ზე.</strong><br>
-                    <em style="color: #7a4a2e;">მხოლოდ ძლიერები გადარჩებიან. მხოლოდ ღირსეულები შემოუერთდებიან.</em><br><br>
-                    <span style="font-size: 0.9em; color: #d4c4b0;">Mato Oyate არ ითხოვს ნებართვას. ჩვენ ვიღებთ რასაც გვინდა.</span>
-                </p>ები გადარჩებიან. მხოლოდ ღირსეულები შემოუერთდებიან.</em><br><br>
-                    <span style="font-size: 0.9em; color: #e8dcc8;">Mato Oyate არ ითხოვს ნებართვას. ჩვენ ვიღებთ რასაც გვინდა.</span>
-                </p><em style="color: #8B0000;">მხოლოდ ძლიერები გადარჩებიან. მხოლოდ ღირსეულები შემოუერთდებიან.</em><br><br>
-                    <span style="font-size: 0.9em; color: #e8dcc8;">Mato Oyate არ ითხოვს ნებართვას. ჩვენ ვიღებთ რასაც გვინდა.</span>
-                </p>
-            </div>
-        </div>
-    </div>
+    </main>
 
     <footer>
-        <p style="font-size: 1.3em; color: #7a4a2e; margin-bottom: 15px;">Mato Oyate - დათვის ხალხი</p>
-        <p style="font-size: 1.1em; margin-top: 15px; color: #9d6b4a;">სისხლი • ძალა • ერთობა</p>
-        <p style="margin-top: 20px; font-size: 0.9em; color: #7a6250;">Royal 1899 Georgian Server</p>
+        Source: content provided by site owner.
     </footer>
 
     <script>
-        // Navigation functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const navButtons = document.querySelectorAll('.nav-btn');
-            const sections = document.querySelectorAll('.section');
-            
-            navButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const targetSection = this.getAttribute('data-section');
-                    
-                    // Remove active class from all buttons and sections
-                    navButtons.forEach(btn => btn.classList.remove('active'));
-                    sections.forEach(section => section.classList.remove('active'));
-                    
-                    // Add active class to clicked button and target section
-                    this.classList.add('active');
-                    document.getElementById(targetSection).classList.add('active');
+        (function() {
+            const tabs = document.querySelectorAll('.tab-button');
+            const panels = document.querySelectorAll('.tab-content');
+
+            function activateTab(tabId) {
+                tabs.forEach(tab => {
+                    const isActive = tab.id === tabId + '-tab';
+                    tab.setAttribute('aria-selected', isActive);
+                });
+
+                panels.forEach(panel => {
+                    const isVisible = panel.id === tabId + '-panel';
+                    panel.setAttribute('aria-hidden', !isVisible);
+                });
+            }
+
+            function handleHash() {
+                const hash = window.location.hash.substring(1);
+                if (hash && document.getElementById(hash + '-panel')) {
+                    activateTab(hash);
+                } else {
+                    activateTab('lore');
+                }
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    const panelId = this.getAttribute('aria-controls').replace('-panel', '');
+                    window.location.hash = panelId;
+                });
+
+                tab.addEventListener('keydown', function(e) {
+                    let index = Array.from(tabs).indexOf(this);
+                    if (e.key === 'ArrowRight') {
+                        index = (index + 1) % tabs.length;
+                        tabs[index].focus();
+                        tabs[index].click();
+                    } else if (e.key === 'ArrowLeft') {
+                        index = (index - 1 + tabs.length) % tabs.length;
+                        tabs[index].focus();
+                        tabs[index].click();
+                    }
                 });
             });
-        });
+
+            window.addEventListener('hashchange', handleHash);
+            handleHash();
+        })();
     </script>
 </body>
 </html>
